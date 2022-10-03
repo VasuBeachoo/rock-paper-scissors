@@ -1,14 +1,14 @@
 import styled from "styled-components";
-import Action from "./Action";
+import { ActionPaper, ActionRock, ActionScissors } from "./Actions";
 
 export const ActionSelectorBox = styled.div``;
 
 const ActionSelector = ({ className }) => {
   return (
     <ActionSelectorBox className={className}>
-      <Action />
-      <Action />
-      <Action />
+      <ActionRock />
+      <ActionPaper />
+      <ActionScissors />
     </ActionSelectorBox>
   );
 };
