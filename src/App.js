@@ -4,18 +4,25 @@ import ActionSelector from "./components/ActionSelector";
 import ResultsDisplay from "./components/ResultsDisplay";
 import { WhiteOutlineBtn } from "./Buttons";
 
-const GameBox = styled.div``;
+const RulesBtn = styled(WhiteOutlineBtn)`
+  align-self: flex-end;
+`;
 
-const AppBox = styled.div``;
+const AppBox = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-width: 100vw;
+  min-height: 100vh;
+`;
 
 const App = () => {
   return (
     <AppBox>
       <ScoreBoard />
-      <GameBox>
-        <ActionSelector />
-      </GameBox>
-      <WhiteOutlineBtn>RULES</WhiteOutlineBtn>
+      <ActionSelector />
+      <RulesBtn>RULES</RulesBtn>
     </AppBox>
   );
 };

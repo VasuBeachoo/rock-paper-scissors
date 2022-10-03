@@ -1,26 +1,47 @@
 import styled from "styled-components";
-import Action from "./Action";
 import { WhiteOutlineBtn } from "../Buttons";
+import { ActionPaper, ActionRock } from "./Actions";
 
 export const Result = styled.h1``;
 
-export const ResultBox = styled.div``;
+export const ResultBox = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
 
 export const ChoiceLabel = styled.h3``;
 
-export const ResultsDisplayBox = styled.div``;
+export const ChoiceBox = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const ResultsDisplayBox = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+`;
 
 const ResultsDisplay = ({ className }) => {
   return (
     <ResultsDisplayBox className={className}>
-      <ChoiceLabel>YOU PICKED</ChoiceLabel>
-      <Action />
+      <ChoiceBox>
+        <ChoiceLabel>YOU PICKED</ChoiceLabel>
+        <ActionRock />
+      </ChoiceBox>
       <ResultBox>
         <Result>YOU WIN</Result>
         <WhiteOutlineBtn>PLAY AGAIN</WhiteOutlineBtn>
       </ResultBox>
-      <ChoiceLabel>THE HOUSE PICKED</ChoiceLabel>
-      <Action />
+      <ChoiceBox>
+        <ChoiceLabel>THE HOUSE PICKED</ChoiceLabel>
+        <ActionPaper />
+      </ChoiceBox>
     </ResultsDisplayBox>
   );
 };

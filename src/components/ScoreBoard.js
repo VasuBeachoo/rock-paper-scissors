@@ -4,19 +4,36 @@ export const ScoreValue = styled.h1``;
 
 export const ScoreLabel = styled.h3``;
 
-export const ScoreBox = styled.div``;
+export const ScoreBox = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
 
 export const GameTitle = styled.h1``;
 
-export const GameTitleBox = styled.div``;
+export const GameTitleBox = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+`;
 
-export const ScoreBoardBox = styled.div``;
+export const ScoreBoardBox = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+`;
 
 const ScoreBoard = ({ className }) => {
   return (
     <ScoreBoardBox className={className}>
       <GameTitleBox>
-        <GameTitle>ROCK PAPER SCISSORS</GameTitle>
+        <GameTitle>
+          ROCK <br /> PAPER <br /> SCISSORS
+        </GameTitle>
       </GameTitleBox>
       <ScoreBox>
         <ScoreLabel>SCORE</ScoreLabel>
