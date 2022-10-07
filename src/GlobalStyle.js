@@ -4,11 +4,11 @@ const styled = { createGlobalStyle };
 
 const GlobalStyle = styled.createGlobalStyle`
   :root {
-    --Scissors-dark: hsl(39, 89%, 49%);
+    --Scissors-dark: hsl(39, 89%, 41%);
     --Scissors-light: hsl(40, 84%, 53%);
-    --Paper-dark: hsl(230, 89%, 62%);
+    --Paper-dark: hsl(230, 89%, 58%);
     --Paper-light: hsl(230, 89%, 65%);
-    --Rock-dark: hsl(349, 71%, 52%);
+    --Rock-dark: hsl(349, 71%, 42%);
     --Rock-light: hsl(349, 70%, 56%);
     --Lizard-dark: hsl(261, 73%, 60%);
     --Lizard-light: hsl(261, 72%, 63%);
@@ -20,6 +20,8 @@ const GlobalStyle = styled.createGlobalStyle`
     --Bg-blue: hsl(214, 47%, 23%);
     --Bg-purple: hsl(237, 49%, 15%);
     --White: hsl(0, 0%, 100%);
+    --Light-gray: hsl(0, 0%, 94%);
+    --Gray: hsl(0, 0%, 80%);
   }
 
   * {

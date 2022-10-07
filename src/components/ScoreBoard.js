@@ -44,7 +44,7 @@ export const ScoreBoardBox = styled.div`
   justify-content: space-between;
   align-items: stretch;
   gap: 2rem;
-  width: 75%;
+  width: 100%;
   max-width: 50rem;
   border: 0.25rem solid var(--Header-outline);
   border-radius: 0.75rem;

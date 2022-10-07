@@ -9,22 +9,35 @@ const RulesBtn = styled(WhiteOutlineBtn)`
   align-self: flex-end;
 `;
 
+const GameBox = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 4rem;
+  width: 90%;
+`;
+
 const AppBox = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 2rem;
   min-width: 100vw;
   min-height: 100vh;
+  padding: clamp(1rem, 7vw, 10rem);
 `;
 
 const App = () => {
   return (
     <AppBox>
       <GlobalStyle />
-      <ScoreBoard />
-      <ActionSelector />
-      <RulesBtn>RULES</RulesBtn>
+      <GameBox>
+        <ScoreBoard />
+        <ActionSelector />
+        <RulesBtn>RULES</RulesBtn>
+      </GameBox>
     </AppBox>
   );
 };
