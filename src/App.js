@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import GlobalStyle from "./GlobalStyle";
 import ScoreBoard from "./components/ScoreBoard";
 import ActionSelector from "./components/ActionSelector";
 import ResultsDisplay from "./components/ResultsDisplay";
@@ -20,6 +21,7 @@ const AppBox = styled.div`
 const App = () => {
   return (
     <AppBox>
+      <GlobalStyle />
       <ScoreBoard />
       <ActionSelector />
       <RulesBtn>RULES</RulesBtn>
