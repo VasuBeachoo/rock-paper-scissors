@@ -35,7 +35,7 @@ const App = () => {
       <GlobalStyle />
       <GameBox>
         <ScoreBoard />
-        <ActionSelector />
+        <ResultsDisplay />
         <RulesBtn>RULES</RulesBtn>
       </GameBox>
     </AppBox>
