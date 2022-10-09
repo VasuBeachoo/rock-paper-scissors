@@ -1,12 +1,13 @@
 import styled from "styled-components";
 import { WhiteOutlineBtn } from "../Buttons";
-import { ActionPaper, ActionRock } from "./Actions";
+import { ActionNone, ActionPaper, ActionRock } from "./Actions";
 
 export const Result = styled.h1`
   text-align: center;
   color: var(--White);
   font-size: 3.5rem;
   font-weight: 700;
+  letter-spacing: 0.02ch;
   margin: 0;
 `;
 
@@ -15,7 +16,7 @@ export const ResultBox = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: stretch;
-  gap: 1rem;
+  gap: 1.25rem;
 `;
 
 export const ChoiceLabel = styled.h3`
@@ -23,7 +24,9 @@ export const ChoiceLabel = styled.h3`
   color: var(--White);
   font-size: 1.75rem;
   font-weight: 600;
+  letter-spacing: 0.1ch;
   margin: 0;
+  margin-bottom: auto;
 `;
 
 export const ChoiceBox = styled.div`
@@ -31,7 +34,7 @@ export const ChoiceBox = styled.div`
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  gap: 2rem;
+  gap: 2.5rem;
 `;
 
 export const ResultsDisplayBox = styled.div`
@@ -39,7 +42,7 @@ export const ResultsDisplayBox = styled.div`
   flex-direction: row;
   justify-content: center;
   align-items: stretch;
-  gap: 3.5rem;
+  gap: 5rem;
 `;
 
 const ResultsDisplay = ({ className }) => {
@@ -55,7 +58,7 @@ const ResultsDisplay = ({ className }) => {
       </ResultBox>
       <ChoiceBox>
         <ChoiceLabel>THE HOUSE PICKED</ChoiceLabel>
-        <ActionPaper />
+        <ActionNone />
       </ChoiceBox>
     </ResultsDisplayBox>
   );

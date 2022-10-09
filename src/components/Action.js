@@ -29,9 +29,11 @@ export const ActionBox = styled.div`
 const Action = ({ className, icon }) => {
   return (
     <ActionBox className={className}>
-      <ActionIconBox>
-        <ActionIcon src={icon.src} alt={icon.alt} />
-      </ActionIconBox>
+      {icon && (
+        <ActionIconBox>
+          <ActionIcon src={icon.src} alt={icon.alt} />
+        </ActionIconBox>
+      )}
     </ActionBox>
   );
 };

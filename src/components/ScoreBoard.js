@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import logoNormal from "../assets/logo.svg";
 
 export const ScoreValue = styled.h1`
   color: var(--Dark-text);
@@ -10,7 +11,7 @@ export const ScoreValue = styled.h1`
 
 export const ScoreLabel = styled.h3`
   color: var(--Score-text);
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   font-weight: 600;
   letter-spacing: 0.35ch;
   margin: 0;
@@ -26,15 +27,11 @@ export const ScoreBox = styled.div`
   padding: 1.3rem 2.5rem;
 `;
 
-export const GameTitle = styled.h1`
-  color: var(--White);
-  font-size: 3rem;
-  font-weight: 700;
-  line-height: 1.7ch;
-  margin: 0;
+export const GameLogo = styled.img`
+  width: 100%;
 `;
 
-export const GameTitleBox = styled.div`
+export const GameLogoBox = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
@@ -57,11 +54,9 @@ export const ScoreBoardBox = styled.div`
 const ScoreBoard = ({ className }) => {
   return (
     <ScoreBoardBox className={className}>
-      <GameTitleBox>
-        <GameTitle>
-          ROCK <br /> PAPER <br /> SCISSORS
-        </GameTitle>
-      </GameTitleBox>
+      <GameLogoBox>
+        <GameLogo src={logoNormal} alt="normal-logo" />
+      </GameLogoBox>
       <ScoreBox>
         <ScoreLabel>SCORE</ScoreLabel>
         <ScoreValue>12</ScoreValue>
