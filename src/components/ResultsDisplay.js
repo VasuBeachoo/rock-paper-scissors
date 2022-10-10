@@ -38,18 +38,22 @@ export const ResultsDisplayBox = styled.div`
     top: -8.35rem;
     left: -13.35rem;
   }
+
+  @media (max-width: 1000px) {
+    flex-direction: column;
+    margin-bottom: 2rem;
+  }
 `;
 
 const ResultsDisplay = ({ className }) => {
   return (
     <ResultsDisplayBox className={className}>
-      <Choice actionChoice="rock" />
+      <Choice label="YOU PICKED" actionChoice="rock" />
       <ResultBox>
         <Result>YOU WIN</Result>
         <WhiteOutlineBtn>PLAY AGAIN</WhiteOutlineBtn>
       </ResultBox>
-      <Choice actionChoice="placeholder" />
-      <WinnerBg />
+      <Choice label="THE HOUSE PICKED" actionChoice="placeholder" />
     </ResultsDisplayBox>
   );
 };

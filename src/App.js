@@ -7,6 +7,10 @@ import { WhiteOutlineBtn } from "./Buttons";
 
 const RulesBtn = styled(WhiteOutlineBtn)`
   align-self: flex-end;
+
+  @media (max-width: 1000px) {
+    align-self: center;
+  }
 `;
 
 const GameBox = styled.div`
@@ -30,7 +34,8 @@ const AppBox = styled.div`
   gap: 2rem;
   min-width: 100vw;
   min-height: 100vh;
-  padding: clamp(1rem, 7vw, 10rem);
+  padding-block: 5rem;
+  padding-inline: clamp(1rem, 7vw, 10rem);
   overflow: hidden;
 `;
 

@@ -24,7 +24,7 @@ export const ChoiceBox = styled.div`
   gap: 2.5rem;
 `;
 
-const Choice = ({ className, actionChoice }) => {
+const Choice = ({ className, label, actionChoice }) => {
   const displayActionChoice = (actionChoice) => {
     switch (actionChoice) {
       case "rock":
@@ -42,7 +42,7 @@ const Choice = ({ className, actionChoice }) => {
 
   return (
     <ChoiceBox className={className}>
-      <ChoiceLabel>YOU PICKED</ChoiceLabel>
+      <ChoiceLabel>{label}</ChoiceLabel>
       {displayActionChoice(actionChoice)}
     </ChoiceBox>
   );

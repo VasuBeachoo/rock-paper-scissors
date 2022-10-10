@@ -23,6 +23,18 @@ export const ActionSelectorBox = styled.div`
       filter: brightness(0.8);
     }
   }
+
+  @media (max-width: 800px) {
+    transform: scale(0.8);
+  }
+
+  @media (max-width: 600px) {
+    transform: scale(0.7);
+  }
+
+  @media (max-width: 400px) {
+    transform: scale(0.6);
+  }
 `;
 
 const ActionSelector = ({ className }) => {

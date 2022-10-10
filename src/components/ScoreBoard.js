@@ -18,6 +18,7 @@ export const ScoreLabel = styled.h3`
 `;
 
 export const ScoreBox = styled.div`
+  align-self: stretch;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -49,6 +50,11 @@ export const ScoreBoardBox = styled.div`
   border: 0.25rem solid var(--Header-outline);
   border-radius: 0.75rem;
   padding: 1.5rem;
+
+  @media (max-width: 1000px) {
+    flex-direction: column;
+    align-items: center;
+  }
 `;
 
 const ScoreBoard = ({ className }) => {
