@@ -8,6 +8,7 @@ import {
 
 export const ChoiceLabel = styled.h3`
   text-align: center;
+  user-select: none;
   color: var(--White);
   font-size: 1.75rem;
   font-weight: 600;
@@ -27,13 +28,13 @@ export const ChoiceBox = styled.div`
 const Choice = ({ className, label, actionChoice }) => {
   const displayActionChoice = (actionChoice) => {
     switch (actionChoice) {
-      case "rock":
+      case "Rock":
         return <ActionRock />;
-      case "paper":
+      case "Paper":
         return <ActionPaper />;
-      case "scissors":
+      case "Scissors":
         return <ActionScissors />;
-      case "placeholder":
+      case "Placeholder":
         return <ActionPlaceholder />;
       default:
         return <></>;

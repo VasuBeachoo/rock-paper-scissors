@@ -2,6 +2,8 @@ import styled from "styled-components";
 
 export const ActionIcon = styled.img`
   width: 4.5rem;
+  user-select: none;
+  pointer-events: none;
 `;
 
 export const ActionIconBox = styled.div`
@@ -26,9 +28,9 @@ export const ActionBox = styled.div`
   transition: 0.25s;
 `;
 
-const Action = ({ className, icon }) => {
+const Action = ({ className, icon, onClick }) => {
   return (
-    <ActionBox className={className}>
+    <ActionBox className={className} onClick={onClick}>
       {icon && (
         <ActionIconBox>
           <ActionIcon src={icon.src} alt={icon.alt} />

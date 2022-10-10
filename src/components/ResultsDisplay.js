@@ -1,10 +1,13 @@
+import { useSelector, useDispatch } from "react-redux";
 import styled from "styled-components";
 import Choice, { ChoiceBox } from "./Choice";
 import WinnerBg, { WinnerBgBoxOuter } from "./WinnerBg";
 import { WhiteOutlineBtn } from "../Buttons";
+import { resetGame } from "../gameSlice";
 
 export const Result = styled.h1`
   text-align: center;
+  user-select: none;
   color: var(--White);
   font-size: 3.5rem;
   font-weight: 700;
@@ -41,19 +44,40 @@ export const ResultsDisplayBox = styled.div`
 
   @media (max-width: 1000px) {
     flex-direction: column;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
   }
 `;
 
 const ResultsDisplay = ({ className }) => {
+  const dispatch = useDispatch();
+
+  const userChoice = useSelector((state) => state.game.userChoice);
+  const houseChoice = useSelector((state) => state.game.houseChoice);
+  const winner = useSelector((state) => state.game.winner);
+
+  const renderResult = (winner) => {
+    switch (winner) {
+      case "User":
+        return "YOU WIN";
+      case "House":
+        return "YOU LOSE";
+      case "Draw":
+        return "DRAW";
+      default:
+        return "";
+    }
+  };
+
   return (
     <ResultsDisplayBox className={className}>
-      <Choice label="YOU PICKED" actionChoice="rock" />
+      <Choice label="YOU PICKED" actionChoice={userChoice} />
       <ResultBox>
-        <Result>YOU WIN</Result>
-        <WhiteOutlineBtn>PLAY AGAIN</WhiteOutlineBtn>
+        <Result>{renderResult(winner)}</Result>
+        <WhiteOutlineBtn onClick={() => dispatch(resetGame())}>
+          PLAY AGAIN
+        </WhiteOutlineBtn>
       </ResultBox>
-      <Choice label="THE HOUSE PICKED" actionChoice="placeholder" />
+      <Choice label="THE HOUSE PICKED" actionChoice={houseChoice} />
     </ResultsDisplayBox>
   );
 };

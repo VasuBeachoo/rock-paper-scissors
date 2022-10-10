@@ -1,3 +1,4 @@
+import { useSelector } from "react-redux";
 import styled from "styled-components";
 import logoNormal from "../assets/logo.svg";
 
@@ -30,6 +31,7 @@ export const ScoreBox = styled.div`
 
 export const GameLogo = styled.img`
   width: 100%;
+  pointer-events: none;
 `;
 
 export const GameLogoBox = styled.div`
@@ -47,6 +49,7 @@ export const ScoreBoardBox = styled.div`
   gap: 2rem;
   width: 100%;
   max-width: 50rem;
+  user-select: none;
   border: 0.25rem solid var(--Header-outline);
   border-radius: 0.75rem;
   padding: 1.5rem;
@@ -58,6 +61,8 @@ export const ScoreBoardBox = styled.div`
 `;
 
 const ScoreBoard = ({ className }) => {
+  const score = useSelector((state) => state.game.score);
+
   return (
     <ScoreBoardBox className={className}>
       <GameLogoBox>
@@ -65,7 +70,7 @@ const ScoreBoard = ({ className }) => {
       </GameLogoBox>
       <ScoreBox>
         <ScoreLabel>SCORE</ScoreLabel>
-        <ScoreValue>12</ScoreValue>
+        <ScoreValue>{score}</ScoreValue>
       </ScoreBox>
     </ScoreBoardBox>
   );

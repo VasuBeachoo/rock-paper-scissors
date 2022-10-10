@@ -1,7 +1,9 @@
+import { useDispatch } from "react-redux";
 import styled from "styled-components";
 import { ActionPaper, ActionRock, ActionScissors } from "./Actions";
 import bgTriangle from "../assets/bg-triangle.svg";
 import { ActionBox } from "./Action";
+import { decideWinner } from "../gameSlice";
 
 export const ActionSelectorBox = styled.div`
   display: grid;
@@ -38,11 +40,13 @@ export const ActionSelectorBox = styled.div`
 `;
 
 const ActionSelector = ({ className }) => {
+  const dispatch = useDispatch();
+
   return (
     <ActionSelectorBox className={className}>
-      <ActionPaper />
-      <ActionScissors />
-      <ActionRock />
+      <ActionPaper onClick={() => dispatch(decideWinner("Paper"))} />
+      <ActionScissors onClick={() => dispatch(decideWinner("Scissors"))} />
+      <ActionRock onClick={() => dispatch(decideWinner("Rock"))} />
     </ActionSelectorBox>
   );
 };

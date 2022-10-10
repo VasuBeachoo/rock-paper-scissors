@@ -1,3 +1,4 @@
+import { useSelector } from "react-redux";
 import styled from "styled-components";
 import GlobalStyle from "./GlobalStyle";
 import ScoreBoard, { ScoreBoardBox } from "./components/ScoreBoard";
@@ -40,12 +41,19 @@ const AppBox = styled.div`
 `;
 
 const App = () => {
+  const gameStage = useSelector((state) => state.game.stage);
+
+  const renderGameStage = (gameStage) => {
+    if (gameStage === "Selection") return <ActionSelector />;
+    else if (gameStage === "Results") return <ResultsDisplay />;
+  };
+
   return (
     <AppBox>
       <GlobalStyle />
       <GameBox>
         <ScoreBoard />
-        <ResultsDisplay />
+        {renderGameStage(gameStage)}
         <RulesBtn>RULES</RulesBtn>
       </GameBox>
     </AppBox>
