@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import GlobalStyle from "./GlobalStyle";
-import ScoreBoard from "./components/ScoreBoard";
+import ScoreBoard, { ScoreBoardBox } from "./components/ScoreBoard";
 import ActionSelector from "./components/ActionSelector";
 import ResultsDisplay from "./components/ResultsDisplay";
 import { WhiteOutlineBtn } from "./Buttons";
@@ -16,6 +16,10 @@ const GameBox = styled.div`
   align-items: center;
   gap: 4rem;
   width: 90%;
+
+  ${ScoreBoardBox} {
+    z-index: 3;
+  }
 `;
 
 const AppBox = styled.div`
@@ -27,6 +31,7 @@ const AppBox = styled.div`
   min-width: 100vw;
   min-height: 100vh;
   padding: clamp(1rem, 7vw, 10rem);
+  overflow: hidden;
 `;
 
 const App = () => {

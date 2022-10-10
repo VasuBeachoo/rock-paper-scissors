@@ -4,9 +4,9 @@ import iconRock from "../assets/icon-rock.svg";
 import iconPaper from "../assets/icon-paper.svg";
 import iconScissors from "../assets/icon-scissors.svg";
 
-export const ActionNone = styled(Action)`
-  width: 13.2rem;
-  height: 13.2rem;
+export const ActionPlaceholder = styled(Action)`
+  width: 13.25rem;
+  height: 13.25rem;
   background-color: var(--Bg-blue);
   border-color: transparent;
   filter: brightness(0.5);

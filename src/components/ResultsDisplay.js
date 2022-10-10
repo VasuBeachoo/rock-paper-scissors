@@ -1,6 +1,7 @@
 import styled from "styled-components";
+import Choice, { ChoiceBox } from "./Choice";
+import WinnerBg, { WinnerBgBoxOuter } from "./WinnerBg";
 import { WhiteOutlineBtn } from "../Buttons";
-import { ActionNone, ActionPaper, ActionRock } from "./Actions";
 
 export const Result = styled.h1`
   text-align: center;
@@ -17,49 +18,38 @@ export const ResultBox = styled.div`
   justify-content: center;
   align-items: stretch;
   gap: 1.25rem;
-`;
-
-export const ChoiceLabel = styled.h3`
-  text-align: center;
-  color: var(--White);
-  font-size: 1.75rem;
-  font-weight: 600;
-  letter-spacing: 0.1ch;
-  margin: 0;
-  margin-bottom: auto;
-`;
-
-export const ChoiceBox = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-  gap: 2.5rem;
+  z-index: 3;
 `;
 
 export const ResultsDisplayBox = styled.div`
+  position: relative;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: stretch;
   gap: 5rem;
+
+  ${ChoiceBox} {
+    z-index: 2;
+  }
+
+  ${WinnerBgBoxOuter} {
+    position: absolute;
+    top: -8.35rem;
+    left: -13.35rem;
+  }
 `;
 
 const ResultsDisplay = ({ className }) => {
   return (
     <ResultsDisplayBox className={className}>
-      <ChoiceBox>
-        <ChoiceLabel>YOU PICKED</ChoiceLabel>
-        <ActionRock />
-      </ChoiceBox>
+      <Choice actionChoice="rock" />
       <ResultBox>
         <Result>YOU WIN</Result>
         <WhiteOutlineBtn>PLAY AGAIN</WhiteOutlineBtn>
       </ResultBox>
-      <ChoiceBox>
-        <ChoiceLabel>THE HOUSE PICKED</ChoiceLabel>
-        <ActionNone />
-      </ChoiceBox>
+      <Choice actionChoice="placeholder" />
+      <WinnerBg />
     </ResultsDisplayBox>
   );
 };

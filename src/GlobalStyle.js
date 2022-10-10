@@ -22,6 +22,12 @@ const GlobalStyle = styled.createGlobalStyle`
     --White: hsl(0, 0%, 100%);
     --Light-gray: hsl(0, 0%, 94%);
     --Gray: hsl(0, 0%, 80%);
+    --Winner-bg-inner: hsl(214, 47%, 24%);
+    --Winner-bg-middle: hsl(214, 47%, 22%);
+    --Winner-bg-outer: hsl(214, 47%, 20%);
+    /* --Winner-bg-inner: #204060;
+    --Winner-bg-middle: #324268;
+    --Winner-bg-outer: #283864; */
   }
 
   * {
