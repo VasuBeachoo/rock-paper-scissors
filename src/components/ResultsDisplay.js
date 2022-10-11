@@ -1,9 +1,43 @@
 import { useSelector, useDispatch } from "react-redux";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import Choice, { ChoiceBox } from "./Choice";
-import WinnerBg, { WinnerBgBoxOuter } from "./WinnerBg";
+import WinnerBg from "./WinnerBg";
 import { WhiteOutlineBtn } from "../Buttons";
 import { resetGame } from "../gameSlice";
+
+export const WinnerBgBox = styled.div`
+  position: absolute;
+
+  ${(props) =>
+    props.winner === "User" &&
+    css`
+      top: -6.5rem;
+      left: -13.25rem;
+
+      @media (max-width: 1000px) {
+        top: -7.95rem;
+        left: -12.95rem;
+      }
+    `}
+
+  ${(props) =>
+    props.winner === "House" &&
+    css`
+      top: -6rem;
+      right: -12.75rem;
+
+      @media (max-width: 1000px) {
+        top: 30.65rem;
+        left: -12.95rem;
+      }
+    `}
+
+    ${(props) =>
+    props.winner === "Draw" &&
+    css`
+      display: none;
+    `}
+`;
 
 export const Result = styled.h1`
   text-align: center;
@@ -34,12 +68,6 @@ export const ResultsDisplayBox = styled.div`
 
   ${ChoiceBox} {
     z-index: 2;
-  }
-
-  ${WinnerBgBoxOuter} {
-    position: absolute;
-    top: -8.35rem;
-    left: -13.35rem;
   }
 
   @media (max-width: 1000px) {
@@ -78,6 +106,9 @@ const ResultsDisplay = ({ className }) => {
         </WhiteOutlineBtn>
       </ResultBox>
       <Choice label="THE HOUSE PICKED" actionChoice={houseChoice} />
+      <WinnerBgBox winner={winner}>
+        <WinnerBg />
+      </WinnerBgBox>
     </ResultsDisplayBox>
   );
 };
