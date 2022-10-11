@@ -63,6 +63,7 @@ const gameSlice = createSlice({
     userChoice: "Placeholder",
     houseChoice: "Placeholder",
     winner: "Draw",
+    popupOpen: false,
   },
   reducers: {
     decideWinner: (state, action) => {
@@ -80,9 +81,12 @@ const gameSlice = createSlice({
       state.houseChoice = "Placeholder";
       state.winner = "Draw";
     },
+    setPopup: (state, action) => {
+      state.popupOpen = action.payload;
+    },
   },
 });
 
-export const { decideWinner, resetGame } = gameSlice.actions;
+export const { decideWinner, resetGame, setPopup } = gameSlice.actions;
 
 export default gameSlice;

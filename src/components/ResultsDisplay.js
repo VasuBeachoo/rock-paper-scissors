@@ -2,7 +2,7 @@ import { useSelector, useDispatch } from "react-redux";
 import styled, { css } from "styled-components";
 import Choice, { ChoiceBox } from "./Choice";
 import WinnerBg from "./WinnerBg";
-import { WhiteOutlineBtn } from "../Buttons";
+import { WhiteOutlineBtn } from "./Buttons";
 import { resetGame } from "../gameSlice";
 
 export const WinnerBgBox = styled.div`
