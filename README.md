@@ -33,6 +33,7 @@ Users should be able to:
 ### Built with
 
 - React
+- Redux
 - styled-components
 - Flexbox
 - CSS Grid
