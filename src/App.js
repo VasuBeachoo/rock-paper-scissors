@@ -6,7 +6,7 @@ import ActionSelector from "./components/ActionSelector";
 import ResultsDisplay from "./components/ResultsDisplay";
 import { WhiteOutlineBtn } from "./components/Buttons";
 import RulesPopup from "./components/RulesPopup";
-import { setPopup } from "./gameSlice";
+import { setPopup, changeMode } from "./gameSlice";
 
 const PopupBox = styled.div`
   position: fixed;
@@ -36,11 +36,17 @@ const DarkOverlay = styled.div`
   z-index: 4;
 `;
 
-const RulesBtn = styled(WhiteOutlineBtn)`
-  align-self: flex-end;
+const BtnsBox = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2.5rem;
+  width: 100%;
+  z-index: 3;
 
-  @media (max-width: 1000px) {
-    align-self: center;
+  @media (max-width: 500px) {
+    flex-direction: column-reverse;
   }
 `;
 
@@ -87,7 +93,14 @@ const App = () => {
       <GameBox>
         <ScoreBoard />
         {renderGameStage(gameStage)}
-        <RulesBtn onClick={() => dispatch(setPopup(true))}>RULES</RulesBtn>
+        <BtnsBox>
+          <WhiteOutlineBtn onClick={() => dispatch(changeMode())}>
+            CHANGE MODE
+          </WhiteOutlineBtn>
+          <WhiteOutlineBtn onClick={() => dispatch(setPopup(true))}>
+            RULES
+          </WhiteOutlineBtn>
+        </BtnsBox>
       </GameBox>
       {popupOpen && (
         <>

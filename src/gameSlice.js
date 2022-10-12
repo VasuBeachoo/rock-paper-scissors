@@ -8,6 +8,7 @@ const setHouseChoice = (state) => {
   let houseChoice = 0;
   if (state.mode === "Rock Paper Scissors")
     houseChoice = Math.floor(Math.random() * 3);
+  else houseChoice = Math.floor(Math.random() * 5);
 
   switch (houseChoice) {
     case 0:
@@ -19,37 +20,77 @@ const setHouseChoice = (state) => {
     case 2:
       state.houseChoice = "Scissors";
       break;
+    case 3:
+      state.houseChoice = "Lizard";
+      break;
+    case 4:
+      state.houseChoice = "Spock";
+      break;
     default:
       break;
   }
 };
 
 const setWinner = (state) => {
-  if (state.mode === "Rock Paper Scissors") {
-    if (state.userChoice === "Rock") {
-      if (state.houseChoice === "Rock") {
-        state.winner = "Draw";
-      } else if (state.houseChoice === "Paper") {
-        state.winner = "House";
-      } else if (state.houseChoice === "Scissors") {
-        state.winner = "User";
-      }
-    } else if (state.userChoice === "Paper") {
-      if (state.houseChoice === "Rock") {
-        state.winner = "User";
-      } else if (state.houseChoice === "Paper") {
-        state.winner = "Draw";
-      } else if (state.houseChoice === "Scissors") {
-        state.winner = "House";
-      }
-    } else if (state.userChoice === "Scissors") {
-      if (state.houseChoice === "Rock") {
-        state.winner = "House";
-      } else if (state.houseChoice === "Paper") {
-        state.winner = "User";
-      } else if (state.houseChoice === "Scissors") {
-        state.winner = "Draw";
-      }
+  if (state.userChoice === "Rock") {
+    if (state.houseChoice === "Rock") {
+      state.winner = "Draw";
+    } else if (state.houseChoice === "Paper") {
+      state.winner = "House";
+    } else if (state.houseChoice === "Scissors") {
+      state.winner = "User";
+    } else if (state.houseChoice === "Lizard") {
+      state.winner = "User";
+    } else if (state.houseChoice === "Spock") {
+      state.winner = "House";
+    }
+  } else if (state.userChoice === "Paper") {
+    if (state.houseChoice === "Rock") {
+      state.winner = "User";
+    } else if (state.houseChoice === "Paper") {
+      state.winner = "Draw";
+    } else if (state.houseChoice === "Scissors") {
+      state.winner = "House";
+    } else if (state.houseChoice === "Lizard") {
+      state.winner = "House";
+    } else if (state.houseChoice === "Spock") {
+      state.winner = "User";
+    }
+  } else if (state.userChoice === "Scissors") {
+    if (state.houseChoice === "Rock") {
+      state.winner = "House";
+    } else if (state.houseChoice === "Paper") {
+      state.winner = "User";
+    } else if (state.houseChoice === "Scissors") {
+      state.winner = "Draw";
+    } else if (state.houseChoice === "Lizard") {
+      state.winner = "User";
+    } else if (state.houseChoice === "Spock") {
+      state.winner = "House";
+    }
+  } else if (state.userChoice === "Lizard") {
+    if (state.houseChoice === "Rock") {
+      state.winner = "House";
+    } else if (state.houseChoice === "Paper") {
+      state.winner = "User";
+    } else if (state.houseChoice === "Scissors") {
+      state.winner = "House";
+    } else if (state.houseChoice === "Lizard") {
+      state.winner = "Draw";
+    } else if (state.houseChoice === "Spock") {
+      state.winner = "User";
+    }
+  } else if (state.userChoice === "Spock") {
+    if (state.houseChoice === "Rock") {
+      state.winner = "User";
+    } else if (state.houseChoice === "Paper") {
+      state.winner = "House";
+    } else if (state.houseChoice === "Scissors") {
+      state.winner = "User";
+    } else if (state.houseChoice === "Lizard") {
+      state.winner = "House";
+    } else if (state.houseChoice === "Spock") {
+      state.winner = "Draw";
     }
   }
 };
@@ -84,9 +125,15 @@ const gameSlice = createSlice({
     setPopup: (state, action) => {
       state.popupOpen = action.payload;
     },
+    changeMode: (state) => {
+      if (state.mode === "Rock Paper Scissors")
+        state.mode = "Rock Paper Scissors Lizard Spock";
+      else state.mode = "Rock Paper Scissors";
+    },
   },
 });
 
-export const { decideWinner, resetGame, setPopup } = gameSlice.actions;
+export const { decideWinner, resetGame, setPopup, changeMode } =
+  gameSlice.actions;
 
 export default gameSlice;

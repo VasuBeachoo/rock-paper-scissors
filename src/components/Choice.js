@@ -4,6 +4,8 @@ import {
   ActionRock,
   ActionPaper,
   ActionScissors,
+  ActionLizard,
+  ActionSpock,
 } from "./Actions";
 
 export const ChoiceLabel = styled.h3`
@@ -34,6 +36,10 @@ const Choice = ({ className, label, actionChoice }) => {
         return <ActionPaper />;
       case "Scissors":
         return <ActionScissors />;
+      case "Lizard":
+        return <ActionLizard />;
+      case "Spock":
+        return <ActionSpock />;
       case "Placeholder":
         return <ActionPlaceholder />;
       default:

@@ -1,6 +1,7 @@
 import { useSelector } from "react-redux";
 import styled from "styled-components";
 import logoNormal from "../assets/logo.svg";
+import logoBonus from "../assets/logo-bonus.svg";
 
 export const ScoreValue = styled.h1`
   color: var(--Dark-text);
@@ -30,7 +31,7 @@ export const ScoreBox = styled.div`
 `;
 
 export const GameLogo = styled.img`
-  width: 100%;
+  width: 10rem;
   pointer-events: none;
 `;
 
@@ -61,13 +62,23 @@ export const ScoreBoardBox = styled.div`
 `;
 
 const ScoreBoard = ({ className }) => {
+  const gameMode = useSelector((state) => state.game.mode);
   const score = useSelector((state) => state.game.score);
+
+  const renderLogo = (gameMode) => {
+    switch (gameMode) {
+      case "Rock Paper Scissors":
+        return <GameLogo src={logoNormal} alt="normal-logo" />;
+      case "Rock Paper Scissors Lizard Spock":
+        return <GameLogo src={logoBonus} alt="bonus-logo" />;
+      default:
+        return <></>;
+    }
+  };
 
   return (
     <ScoreBoardBox className={className}>
-      <GameLogoBox>
-        <GameLogo src={logoNormal} alt="normal-logo" />
-      </GameLogoBox>
+      <GameLogoBox>{renderLogo(gameMode)}</GameLogoBox>
       <ScoreBox>
         <ScoreLabel>SCORE</ScoreLabel>
         <ScoreValue>{score}</ScoreValue>

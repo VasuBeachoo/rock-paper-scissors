@@ -2,6 +2,7 @@ import { useSelector, useDispatch } from "react-redux";
 import styled from "styled-components";
 import iconClose from "../assets/icon-close.svg";
 import imgRules from "../assets/image-rules.svg";
+import imgRulesBonus from "../assets/image-rules-bonus.svg";
 import { setPopup } from "../gameSlice";
 
 export const RulesImg = styled.img`
@@ -33,7 +34,7 @@ export const RulesPopupBox = styled.div`
   display: grid;
   grid-template: repeat(2, auto) / repeat(2, auto);
   align-items: center;
-  gap: 2.25rem;
+  gap: 2rem;
   width: 100%;
 `;
 
@@ -46,6 +47,13 @@ const RulesPopup = ({ className }) => {
     switch (gameMode) {
       case "Rock Paper Scissors":
         return <RulesImg src={imgRules} alt="rock-paper-scissors-rules" />;
+      case "Rock Paper Scissors Lizard Spock":
+        return (
+          <RulesImg
+            src={imgRulesBonus}
+            alt="rock-paper-scissors-lizard-spock-rules"
+          />
+        );
       default:
         return <></>;
     }
